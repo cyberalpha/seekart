@@ -1,10 +1,24 @@
- const http = require('http');
+// App.js
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useNavigationContainer } from '@react-navigation/native'; // Si usas navegación
+import { SplashScreen } from 'expo-router'; // Para cargar la pantalla inicial
+import 'expo-router/entry';
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('¡Hola desde Node.js!');
-});
+export default function App() {
+  return (
+    <View style={styles.container}>
+      {/* Componente principal */}
+      <SplashScreen />
+      <StatusBar style="auto" />
+    </View>
+  );
+}
 
-server.listen(3000, () => {
-  console.log('Servidor escuchando en http://localhost:3000');
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
 });
